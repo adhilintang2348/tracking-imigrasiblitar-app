@@ -1,0 +1,1744 @@
+/* RESET STANDAR */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* NAVBAR KECIL */
+/* NAVBAR: Batik hanya di bagian atas */
+/* --- NAVBAR BERBATIK BIRU --- */
+/* PERBAIKAN LOGO NAVBAR RAKSASA */
+/* --- PERBAIKAN BATIK NAVBAR AGAR TIDAK MENYUSUT --- */
+.navbar {
+  height: 75px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  /* Kunci utama: Pastikan background-size tetap cover */
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  overflow: hidden;
+  margin-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+/* Memastikan overlay biru juga menutupi seluruh area navbar */
+.navbar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(26, 54, 93, 0.85); 
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Memastikan logo tidak menarik atau mengubah ukuran navbar */
+.logo-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-left: 5%;
+  height: 100%; /* Menyesuaikan dengan tinggi navbar */
+}
+
+.nav-logo {
+  height: 50px !important; /* Ukuran logo tetap proporsional */
+  width: auto;
+  object-fit: contain;
+}
+
+/* --- HERO SECTION POLOS --- */
+/* BACKGROUND HERO SECTION (Biru Solid) */
+.hero-section {
+  background-color: #1a365d; /* Kembali ke biru tua polos */
+  height: 350px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: -2px !important;
+  overflow: hidden; /* Mencegah watermark keluar batas */
+}
+
+/* PEMBUNGKUS DEKORASI */
+.hero-decoration-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%; /* Menggunakan 50% agar bidangnya proporsional */
+  height: 100%;
+  z-index: 1;
+}
+
+/* BIDANG KUNING: Segitiga sama kaki menghadap bawah */
+.small-yellow-triangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fcc419;
+  /* 
+     Koordinat Segitiga:
+     - Kiri Atas: 25% 0
+     - Kanan Atas: 57% 0
+     - Ujung Bawah: 41% 40%
+  */
+  clip-path: polygon(25% 0, 57% 0, 41% 40%);
+  z-index: 5;
+}
+
+/* BIDANG BATIK: Diagonal miring searah \ */
+.batik-corner-main {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: left center;
+  background-color: white;
+  /* 
+     Sisi kiri dipotong miring dari 25% 0 (atas) menuju 65% 100% (bawah).
+     Garis miring ini secara matematis akan menopang sempurna sisi kiri segitiga kuning.
+  */
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 65% 100%);
+  z-index: 4;
+}
+
+.hero-batik-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/batik-background.png'); /* Gambar batik samar */
+  background-size: cover;
+  opacity: 0.15; 
+  z-index: 1;
+}
+
+/* --- PERBAIKAN VISUAL HERO (BATIK & GARIS KUNING) --- */
+.hero-visual {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Garis Kuning Tipis (Pemisah Diagonal) */
+.yellow-triangle {
+  position: absolute;
+  right: 30%; /* Sesuaikan posisi agar pas dengan desain */
+  top: 0;
+  width: 15px; 
+  height: 100%;
+  background-color: #fcc419;
+  transform: skewX(-20deg); 
+  z-index: 5;
+}
+
+/* Batik Utama (Warna Terang di Sisi Kanan) */
+.batik-side-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  background-size: cover;
+  background-position: left center;
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 4;
+}
+
+.batik-side-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  background-image: url('./assets/batik-utama.png'); /* Gambar batik tajam di kanan */
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 10% 100%); 
+  z-index: 3;
+}
+
+/* --- VISUAL SEGITIGA & BATIK KANAN --- */
+.hero-section {
+  background-color: #1a365d; /* Biru Polos */
+  height: 350px;
+  position: relative; /* Wajib ada agar elemen di dalamnya bisa nempel kanan */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  margin: 10px 0 60px 0; /* Garis putih atas dan bawah */
+}
+
+/* KUNCI POSISI DEKORASI KE POJOK KANAN */
+.hero-decoration {
+  position: absolute;
+  top: 0;
+  right: 0; /* Kunci ke kanan */
+  width: 50%; /* Ambil setengah layar kanan */
+  height: 100%;
+  z-index: 1;
+}
+
+.yellow-triangle-shape {
+  position: absolute;
+  top: 0;
+  left: 0; /* Mulai dari batas tengah dekorasi */
+  width: 100%;
+  height: 100%;
+  background-color: #fcc419;
+  /* Bentuk diagonal miring tajam */
+  clip-path: polygon(40% 0, 65% 0, 25% 100%, 0% 100%);
+  z-index: 2;
+}
+
+.batik-corner {
+  position: absolute;
+  top: 0;
+  right: 0; /* Tempel ke ujung kanan layar */
+  width: 80%; /* Lebar batik */
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  /* Potongan diagonal mengikuti garis kuning */
+  clip-path: polygon(45% 0, 100% 0, 100% 100%, 15% 100%);
+  z-index: 1;
+}
+
+/* --- BAGIAN TENGAH (CEK STATUS) --- */
+.search-section {
+  background-color: #f0f7ff; /* Warna biru sangat muda di sekitar kotak */
+  padding: 60px 0;
+  position: relative;
+  /* Ruang putih di bawah kotak sebelum footer */
+  margin-bottom: 60px;
+}
+
+/* Tambahkan garis putih pemisah sesuai desain */
+.app-container {
+  background-color: white; /* Ini akan jadi garis putih di sela-sela */
+}
+
+/* MAIN SECTION & KOTAK PENCARIAN */
+.search-section {
+  flex: 1;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1a365d;
+}
+
+.search-header h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.search-header p {
+  font-size: 14px;
+  color: #4a5568;
+}
+
+.search-card {
+  background-color: white;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  background-color: #f1f5f9;
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 25px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background-color: white;
+  color: #1e293b;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot-green { background-color: #22c55e; }
+.dot-orange { background-color: #f97316; }
+
+/* FORM INPUT & TOMBOL */
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #1a365d;
+  background-color: white;
+}
+
+.submit-btn {
+  background-color: #1a365d;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #122847;
+}
+
+/* ALERT BOX */
+.alert-box {
+  background-color: #e2e8f0;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  color: #4a5568;
+}
+
+.alert-icon svg {
+  color: #1a365d;
+}
+
+.alert-text strong {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 3px;
+  color: #1a365d;
+}
+
+.alert-text p {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* FOOTER */
+.footer {
+  background-color: #0f172a;
+  color: #cbd5e1;
+  padding: 40px 40px 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.footer-info p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.map-placeholder {
+  width: 300px;
+  height: 150px;
+  background-color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #94a3b8;
+  border-radius: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #1e293b;
+  padding-top: 20px;
+  font-size: 12px;
+}
+/* --- CSS UNTUK HALAMAN HASIL --- */
+/* --- CSS UNTUK HALAMAN HASIL (VERSI MUNGIL & PROPORSIONAL) --- */
+.result-header {
+  background-color: #e2e8f0; 
+  padding: 40px 20px;
+  text-align: center;
+  color: #1a365d;
+}
+
+.result-section {
+  flex: 1;
+  padding: 40px 10%; /* Kita gunakan persentase agar tombol tidak terlalu menempel ke layar pinggir */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Ini kunci yang mengembalikan posisi tombol ke kiri */
+}
+
+.back-btn {
+  background-color: #fde047;
+  color: #1e293b;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: 0.3s;
+  width: fit-content; /* Ini yang membuat tombolnya memeluk teks saja dan tidak melar */
+}
+
+.back-btn:hover {
+  background-color: #facc15;
+}
+
+/* KOTAK UTAMA YANG LEBIH KECIL */
+.not-found-card {
+  background-color: #fdf8eb;
+  border: 1px solid #fde68a;
+  border-radius: 10px;
+  padding: 25px 25px;
+  width: 100%;
+  max-width: 400px;
+  
+  /* KUNCI UTAMA DI SINI */
+  margin-left: auto;
+  margin-right: auto;
+  
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.not-found-title {
+  display: flex;
+  align-items: flex-start; /* PENTING: Ikon sejajar dengan teks atas, bukan di tengah */
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.error-icon {
+  background-color: #ef4444;
+  color: white;
+  width: 26px;
+  height: 26px;
+  min-width: 26px; /* PENTING: Mencegah ikon lonjong saat teks panjang */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 2px; /* Menurunkan ikon sedikit agar sejajar rapi dengan huruf */
+}
+
+.not-found-title h3 {
+  color: #111827;
+  font-size: 18px; /* Huruf sedikit dikecilkan */
+  line-height: 1.4;
+}
+
+.not-found-message {
+  background-color: #fecaca;
+  color: #7f1d1d;
+  padding: 15px; /* Jarak dalam pesan diperkecil */
+  border-radius: 8px;
+  line-height: 1.5;
+  font-size: 14px; /* Huruf pesan disesuaikan */
+}
+/* AREA DEKORASI KANAN */
+.hero-decoration {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+}
+
+/* Bidang Kuning (Segitiga Miring) */
+.yellow-triangle-shape {
+  position: absolute;
+  top: 0;
+  right: 250px; /* Atur jarak miringnya agar pas */
+  width: 200px;
+  height: 100%;
+  background-color: #fcc419;
+  clip-path: polygon(100% 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 3;
+}
+
+/* Batik Terang di Pojok Kanan */
+.batik-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 350px; /* Ukuran batik di pojok */
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  /* Potongan miring mengikuti bidang kuning */
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 4;
+}
+
+/* ========================================================
+   OVERRIDE FINAL TEKS HERO (MENGALAHKAN SEMUA KODE LAMA)
+   ======================================================== */
+
+.hero-section .hero-content {
+  width: 100% !important;
+  max-width: 1000px !important; /* Memberi ruang bentangan sangat lebar */
+  padding-left: 5% !important;
+}
+
+.hero-section .hero-content .hero-text {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* H1: SELAMAT DATANG (Besar dan dipepetkan ke bawah) */
+.hero-section .hero-content .hero-text h1 {
+  color: white !important;
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  margin-bottom: 0px !important; /* Menarik rapat ke H2 */
+  margin-top: 0px !important;
+  line-height: 1.2 !important;
+  letter-spacing: 1px !important;
+}
+
+/* H2: NAMA INSTANSI (Sama besar dengan H1, dipaksa 1 baris) */
+.hero-section .hero-content .hero-text h2 {
+  color: white !important;
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important; /* Wajib 1 baris lurus ke kanan */
+  margin-top: 5px !important; /* Jarak sangat tipis ke H1 */
+  margin-bottom: 15px !important; /* Jarak ke paragraf */
+  line-height: 1.2 !important;
+}
+
+/* P: PARAGRAF (Bebas memanjang menjadi 2 baris) */
+.hero-section .hero-content .hero-text p {
+  font-size: 13px !important;
+  max-width: 100% !important; /* Menghancurkan batas 500px yang lama */
+  line-height: 1.5 !important;
+  color: #e2e8f0 !important;
+}
+
+/* --- PERBAIKAN LOGO FOOTER AGAR TIDAK RAKSASA --- */
+.footer-info {
+  display: flex;
+  flex-direction: column; /* Menyusun logo di atas teks alamat */
+  align-items: flex-start; /* Meratakan ke kiri */
+}
+
+.footer-logos {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px; /* Memberi jarak ke teks alamat di bawahnya */
+}
+
+.footer-logo {
+  height: 50px !important; /* Mengunci tinggi logo agar kecil dan rapi */
+  width: auto !important;
+  object-fit: contain;
+  background-image: none !important; /* Memastikan tidak ada background yang bocor */
+  background: transparent !important;
+}
+
+/* Memastikan teks alamat di bawah logo tidak terpengaruh */
+.footer-info p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #cbd5e1;
+  margin-top: 0;
+}
+
+/* --- STYLING MEDIA SOSIAL FOOTER --- */
+.footer-socials {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px; /* Jarak dari email */
+}
+
+.social-icon {
+  color: #cbd5e1; /* Warna abu-abu terang agar senada dengan teks */
+  font-size: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1); /* Background lingkaran tipis */
+}
+
+/* Efek saat kursor diarahkan ke ikon */
+.social-icon:hover {
+  color: white;
+  background: #1a365d; /* Berubah jadi biru saat hover */
+  transform: translateY(-3px); /* Efek sedikit naik */
+}
+
+/* Warna khusus saat hover (Opsional jika ingin berwarna) */
+.social-icon i.fa-instagram:hover { color: #E1306C; }
+.social-icon i.fa-facebook-f:hover { color: #1877F2; }
+.social-icon i.fa-youtube:hover { color: #FF0000; }
+
+/* --- STYLING LINK KONTAK FOOTER --- */
+.footer-link {
+  color: #cbd5e1; /* Warna disamakan dengan teks alamat */
+  text-decoration: none; /* Menghilangkan garis bawah */
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: white; /* Berubah putih saat kursor di atasnya */
+  text-decoration: underline; /* Garis bawah muncul hanya saat hover */
+}
+
+/* --- STYLING PETA FOOTER --- */
+.footer-map {
+  flex: 1;
+  min-width: 300px;
+  max-width: 450px;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Efek teks muncul saat peta disentuh kursor */
+.map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 54, 93, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.map-overlay span {
+  color: white;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: 1px solid white;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.map-container:hover {
+  transform: scale(1.02);
+}
+
+.map-container:hover .map-overlay {
+  opacity: 1;
+}
+
+/* Label untuk Paspor */
+.green-label { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+
+/* Label untuk Izin Tinggal */
+.orange-label { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
+
+/* Background kartu info */
+.bg-green { background-color: #f0fdf4 !important; }
+.bg-orange { background-color: #fffaf0 !important; }
+
+/* --- LANG SWITCHER (TOMBOL BAHASA) --- */
+.lang-switcher {
+  position: absolute;
+  right: 5%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.lang-btn:hover {
+  color: white;
+}
+
+.lang-btn.active {
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.lang-divider {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* =========================================================
+   GAYA UNTUK HALAMAN HASIL SUKSES & GAGAL
+   ========================================================= */
+
+/* --- BANNER HEADER --- */
+.header-banner {
+  background-color: #eef2ff; /* Warna biru/ungu sangat muda mirip desain */
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+  /* Jika Anda punya gambar batik tipis, bisa ditambahkan di sini */
+}
+
+.header-banner h2 {
+  color: #1e3a8a;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* --- TOMBOL KEMBALI --- */
+.btn-kembali {
+  background-color: white !important; /* Latar belakang putih bersih */
+  color: #334155 !important; /* Teks warna biru tua senada dengan judul */
+  border: 1px solid #cbd5e1 !important; /* Garis tepi tipis dan kalem */
+  padding: 6px 14px !important; /* Padding dikecilkan agar kotak lebih ramping */
+  border-radius: 6px !important; /* Sudut membulat */
+  font-weight: 600 !important;
+  font-size: 13px !important; /* Ukuran huruf sedikit diperkecil */
+  cursor: pointer !important;
+  margin: 20px 0 20px 0 !important;
+  display: inline-flex !important; /* Menjaga agar tombol tidak melebar seukuran layar */
+  align-items: center !important;
+  gap: 6px !important; /* Jarak antara panah dan teks sedikit dirapatkan */
+  transition: all 0.2s ease !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important; /* Bayangan yang saaaaangat tipis */
+}
+
+.btn-kembali:hover {
+  background-color: #f1f5f9 !important; /* Sedikit abu-abu saat mouse diarahkan ke atasnya */
+  border-color: #94a3b8 !important;
+  color: #1d4ed8 !important;
+  text-decoration: none !important; /* Memastikan tidak ada garis bawah */
+}
+
+/* --- KARTU IDENTITAS USER (BAGIAN ATAS) --- */
+.user-info-card {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.user-main h3 {
+  font-size: 20px;
+  color: #111827;
+  margin: 5px 0;
+}
+
+.user-main p {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.user-dates {
+  display: flex;
+  gap: 15px;
+}
+
+.date-box {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+  min-width: 150px;
+}
+
+.date-box small {
+  color: #64748b;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.date-box strong {
+  color: #0f172a;
+  font-size: 14px;
+}
+
+/* --- GRID HASIL (KIRI & KANAN) --- */
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Membagi layar menjadi 2 kolom sama besar */
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+/* Kartu Dasar */
+.card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* --- KARTU KIRI: TRACKER PROGRESS --- */
+.status-tracker-card h4 {
+  font-size: 16px;
+  color: #111827;
+  margin-bottom: 5px;
+}
+
+.status-tracker-card p {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 30px;
+}
+
+.stepper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.circle {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  background-color: #10b981; /* Hijau */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.step span {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* --- KARTU KANAN: INFORMASI SAAT INI --- */
+/* Override warna background agar selalu krem/kuning muda sesuai Figma */
+.info-side-card {
+  background-color: #fdf8eb !important; 
+  border: 1px solid #fef08a !important;
+}
+
+.info-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.info-icon {
+  width: 32px;
+  height: 32px;
+  background-color: #facc15; /* Ikon kuning */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.info-header strong {
+  font-size: 16px;
+  color: #111827;
+}
+
+.info-body small {
+  display: block;
+  color: #64748b;
+  margin-bottom: 5px;
+}
+
+.info-body h4 {
+  font-size: 18px;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.info-body p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4b5563;
+  margin-bottom: 25px;
+}
+
+.note-box {
+  background-color: #ffedd5; /* Oranye sangat muda */
+  border: 1px solid #fdba74;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.note-box strong {
+  display: block;
+  color: #c2410c; /* Teks oranye gelap */
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.note-box p {
+  color: #ea580c;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* =========================================================
+   PENYESUAIAN UKURAN KONSISTEN (MENYAMAKAN DENGAN BERANDA)
+   ========================================================= */
+
+/* 1. Memastikan banner tidak terlalu tebal tapi tetap proporsional */
+.header-banner {
+  padding: 40px 20px !important; 
+}
+
+/* 2. Jarak dalam (padding) kartu disamakan dengan kartu di Beranda */
+.user-info-card {
+  padding: 30px !important;
+  margin-top: 20px !important;
+  margin-bottom: 30px !important;
+}
+
+.card {
+  padding: 30px !important;
+}
+
+/* 3. Jarak antar kolom (gap) dikembalikan ke ukuran standar yang elegan */
+.result-grid {
+  gap: 30px !important;
+  margin-bottom: 60px !important;
+}
+
+/* 4. Menyelaraskan jarak elemen di dalam kartu (stepper & teks) */
+.stepper {
+  gap: 20px !important;
+}
+.status-tracker-card p {
+  margin-bottom: 25px !important;
+}
+
+.info-header {
+  margin-bottom: 20px !important;
+}
+.info-body p {
+  margin-bottom: 20px !important;
+}
+.note-box {
+  padding: 20px !important;
+}
+
+/* =========================================================
+   STYLE UNTUK PROGRESS TRACKER (LANGKAH BELUM SELESAI)
+   ========================================================= */
+
+/* Mengubah lingkaran menjadi abu-abu jika langkah belum tercapai */
+.step.inactive .circle {
+  background-color: #f1f5f9 !important; 
+  color: #94a3b8 !important; 
+  border: 2px solid #e2e8f0 !important;
+}
+
+/* Mengubah warna teks keterangan menjadi abu-abu pudar */
+.step.inactive span {
+  color: #94a3b8 !important; 
+}
+
+.chatbot-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+}
+
+/* Tombol Bulat Mengapung */
+.floating-cs-btn.avatar-mode {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  overflow: hidden; /* Agar gambar tetap bulat */
+  padding: 0;
+  background-color: white; 
+  border: 2px solid #0e2571; 
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.bot-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Agar gambar petugas pas di lingkaran */
+}
+
+.floating-cs-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Jendela Chat Utama */
+.chatbot-window {
+  width: 350px;
+  height: 500px;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.3s ease forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chatbot-header {
+  /* Ganti ke Biru Slate yang lebih elegan dan modern */
+  background-color: #002498; 
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Tambahan: berikan sedikit lengkungan di pojok atas */
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.chatbot-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* GANTI KODE .chatbot-avatar LAMA DENGAN INI */
+.chatbot-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  background: #f1f5f9;
+}
+
+.chatbot-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chatbot-name {
+  display: flex;
+  flex-direction: column;
+}
+.chatbot-name strong { font-size: 15px; }
+.chatbot-name small { font-size: 11px; opacity: 0.8; }
+
+.close-chat-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Area Riwayat Pesan */
+.chatbot-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.chat-bubble-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: 85%;
+}
+
+.chat-bubble-wrapper.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.chat-bubble-wrapper.bot {
+  align-self: flex-start;
+}
+
+.chat-bubble {
+  padding: 12px 16px;
+  border-radius: 15px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.chat-bubble.bot {
+  background-color: white;
+  color: #334155;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  margin-left: 5px; /* Memberi jarak antara foto dan tulisan */
+}
+
+.chat-bubble.user {
+  background-color: #1e40af; /* Biru Navy */
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+/* GANTI KODE .chat-avatar-small LAMA DENGAN INI */
+.chat-avatar-small {
+  width: 35px;         /* Tentukan lebar tetap */
+  height: 35px;        /* Tentukan tinggi tetap */
+  flex-shrink: 0;      /* KUNCI: Mencegah gambar menyempit/gepeng */
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-avatar-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* Memastikan foto proporsional */
+}
+
+/* Area Input Bawah */
+.chatbot-input-area {
+  background: white;
+  padding: 15px;
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.chatbot-input-area input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  outline: none;
+  font-size: 14px;
+}
+
+.chatbot-input-area input:focus {
+  border-color: #1e40af; /* Garis biru saat sedang mengetik */
+}
+
+.send-btn {
+  background: transparent;
+  border: none;
+  color: #1e40af; /* Ikon pesawat kertas warna biru */
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   STYLE UNTUK HALAMAN GAGAL / ERROR CARD
+========================================= */
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f4f8; /* Latar belakang abu-abu kebiruan yang lembut */
+  padding: 20px;
+}
+
+.error-card {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Efek bayangan / melayang */
+  max-width: 550px;
+  width: 100%;
+  text-align: center;
+  border-top: 6px solid #e74c3c; /* Garis merah tegas di atas kartu */
+}
+
+.error-title {
+  color: #2c3e50;
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.error-message {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.error-suggestions {
+  text-align: left;
+  background-color: #fff5f5; /* Latar belakang merah sangat muda */
+  border: 1px solid #ffebeb;
+  padding: 20px;
+  border-radius: 8px;
+  color: #444;
+}
+
+.error-suggestions li {
+  margin-bottom: 8px;
+}
+
+.btn-primary {
+  background-color: #0f3d7b; /* Biru elegan khas Imigrasi */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;
+}
+
+.btn-primary:hover {
+  background-color: #1a56a3; /* Biru yang lebih terang saat disorot mouse */
+}
+
+/* =========================================
+   STYLE UNTUK HALAMAN HASIL GAGAL (DESAIN BARU)
+========================================= */
+.gagal-page-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #ffffff; /* Background luar putih */
+  min-height: 50vh;
+}
+
+.gagal-content-wrapper {
+  width: 100%;
+  max-width: 900px; /* Lebar area konten menyesuaikan banner */
+}
+
+/* Tombol Kuning */
+.btn-kembali-kuning {
+  background-color: #fde047; /* Kuning terang sesuai gambar */
+  color: #333;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 50px; /* Jarak antara tombol dan kartu */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.2s;
+}
+
+.btn-kembali-kuning:hover {
+  background-color: #facc15;
+}
+
+/* Kartu Luar (Kuning Pucat) */
+.gagal-card {
+  background-color: #fef9ea; /* Kuning sangat pucat/krem */
+  border: 1px solid #f3e6ce; /* Garis tepi tipis */
+  border-radius: 12px;
+  padding: 40px;
+  margin: 0 auto; /* Posisi di tengah */
+  max-width: 650px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Bayangan lembut */
+}
+
+/* Bagian Judul dan Ikon */
+.gagal-card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.gagal-icon-circle {
+  background-color: #f24e4e; /* Merah ikon */
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%; /* Membuatnya bulat */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.gagal-card-header h2 {
+  margin: 0;
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Kotak Pesan Dalam (Merah Muda/Salem) */
+.gagal-card-body {
+  background-color: #fbcbcb; /* Merah salem sesuai gambar */
+  padding: 25px;
+  border-radius: 6px;
+  border: 1px solid #f5baba;
+}
+
+.gagal-card-body p {
+  margin: 0;
+  color: #222;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   STYLE UNTUK KONTEN TENGAH HALAMAN GAGAL
+========================================= */
+.gagal-content-wrapper {
+  background-color: #ffffff;
+  padding: 40px 20px 80px 20px; /* Jarak atas, kanan, bawah, kiri */
+  min-height: 50vh;
+}
+
+.gagal-action-bar {
+  max-width: 900px;
+  margin: 0 auto 40px auto; /* Memposisikan tombol agar sejajar */
+  text-align: left;
+}
+
+/* Tombol Kembali Kuning */
+.btn-kembali-kuning {
+  background-color: #fde047; /* Warna kuning terang */
+  color: #000;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.2s;
+}
+
+.btn-kembali-kuning:hover {
+  background-color: #facc15;
+}
+
+/* Kartu Peringatan (Kuning Pucat) */
+.gagal-card {
+  background-color: #fef9ea; /* Kuning sangat pucat */
+  border: 1px solid #f3e6ce;
+  border-radius: 12px;
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.gagal-card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+/* Ikon Seru Merah */
+.gagal-icon-circle {
+  background-color: #f24e4e;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.gagal-card-header h2 {
+  margin: 0;
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Kotak Pesan Dalam (Merah Muda/Salem) */
+/* =========================================
+   UPDATE: KARTU GAGAL YANG LEBIH KECIL
+========================================= */
+.gagal-card {
+  background-color: #fef9ea; 
+  border: 1px solid #f3e6ce;
+  border-radius: 12px;
+  /* Padding dibuat sama rata atas-bawah-kiri-kanan agar proporsinya kotak */
+  padding: 35px; 
+  /* Margin atas dan bawah diperbesar ekstrim agar halaman terasa lega */
+  margin: 60px auto 120px auto; 
+  /* Lebar maksimal dikecilkan drastis */
+  max-width: 420px; 
+}
+
+.gagal-card-header {
+  display: flex;
+  align-items: flex-start; /* Memastikan ikon tetap di atas meskipun teks judul menjadi 2 baris */
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* Ikon Seru Merah */
+.gagal-icon-circle {
+  background-color: #f24e4e;
+  color: white;
+  width: 24px; 
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+  flex-shrink: 0; /* Mencegah ikon berubah gepeng karena ruang kartu menyempit */
+  margin-top: 2px;
+}
+
+.gagal-card-header h2 {
+  margin: 0;
+  color: #000;
+  font-size: 16px; 
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Kotak Pesan Dalam */
+.gagal-card-body {
+  background-color: #fbcbcb; 
+  padding: 20px; 
+  border-radius: 6px;
+  border: 1px solid #f5baba;
+}
+
+.gagal-card-body p {
+  margin: 0;
+  color: #222;
+  font-size: 13px; /* Ukuran teks diperkecil lagi agar muat di kotak kecil */
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   9. KHUSUS HALAMAN IZIN TINGGAL (WNA)
+   ========================================================================== */
+
+/* Centang Biru untuk status Sedang Diproses */
+.circle-blue {
+  background-color: #0ea5e9 !important; /* Warna biru muda cerah */
+}
+
+/* Lencana / Pil penanda "Sedang Diproses" */
+.status-pill-blue {
+  background-color: #0ea5e9;
+  color: white;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  width: fit-content;
+}
+
+/* Centang Abu-abu tebal untuk status yang belum dilalui */
+.circle-grey {
+  background-color: #cbd5e1 !important; 
+  color: white !important;
+  border: none !important;
+}
+
+/* Memastikan teks "Penerbitan" tetap tebal dan hitam meski belum aktif */
+.step.inactive span {
+  color: #111827 !important;
+  font-weight: 600 !important;
+}
+
+/* Container untuk teks langkah agar rapi ke bawah */
+.step-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 15px;
+}
+
+.step-text {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+/* Badge Kapsul Biru "Sedang Diproses" */
+.processing-badge {
+  display: flex;
+  align-items: center;
+  background-color: #00acee; /* Warna biru cerah sesuai gambar */
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px; /* Bentuk kapsul */
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Titik putih di dalam kapsul */
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+/* Warna abu-abu untuk angka di tahap yang belum tercapai (Tahap 4) */
+.step:not(.active):not(.completed) .circle {
+  background-color: #ccc;
+  color: white;
+  border: none;
+}
+
+/* Gaya Ikon Informasi */
+.info-icon-circle {
+  background-color: #f1c40f;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+/* KOTAK INSTRUKSI ORANYE */
+.instruksi-box {
+  background-color: #ffe0b2;
+  border: 1px solid #ffb74d;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.instruksi-box strong {
+  color: #e65100;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.instruksi-box p {
+  color: #5d4037;
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Badge Sedang Diproses */
+.processing-badge {
+  display: flex;
+  align-items: center;
+  background-color: #00acee;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* Spinner di dalam Tombol */
+.btn-loading-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spinner-small {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Style Input saat Error */
+.input-error {
+  border: 2px solid #ff4d4d !important;
+  background-color: #fff5f5;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 13px;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+/* Style untuk link di bagian footer */
+.footer-link {
+  color: #ffffff; /* Mengubah warna teks menjadi putih */
+  text-decoration: none; /* Menghilangkan garis bawah bawaan */
+  transition: color 0.3s ease; /* Memberikan efek transisi halus saat disentuh */
+}
+
+/* Efek saat teks disentuh kursor (hover) */
+.footer-link:hover {
+  color: #ffcc00; /* Berubah menjadi warna kuning/emas saat disorot */
+  text-decoration: underline; /* Muncul garis bawah sebagai penanda bisa diklik */
+}
