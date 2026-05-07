@@ -124,18 +124,20 @@ function Home() {
       </header>
 
       <section className="hero-section">
-        <div className="hero-content">
-          <div className="hero-text">
-            <h1>{t.welcome}</h1>
-            <h2>{t.office}</h2>
-            <p>{t.desc}</p>
-          </div>
-        </div>
-        <div className="hero-decoration-wrapper">
-          <div className="small-yellow-triangle"></div>
-          <div className="batik-corner-main" style={{ backgroundImage: `url(${batikUtama})` }}></div>
-        </div>
-      </section>
+  <div className="hero-responsive-wrapper">
+    <div className="hero-content">
+      <div className="hero-text">
+        <h1>{t.welcome}</h1>
+        <h2>{t.office}</h2>
+        <p>{t.desc}</p>
+      </div>
+    </div>
+    <div className="hero-decoration-wrapper">
+      <div className="small-yellow-triangle"></div>
+      <div className="batik-corner-main" style={{ backgroundImage: `url(${batikUtama})` }}></div>
+    </div>
+  </div>
+</section>
 
       <main className="search-section">
         <div className="search-header">
