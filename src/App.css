@@ -1768,86 +1768,161 @@ html, body {
   overflow-x: hidden;
 }
 
+/* ============================================================
+   PERBAIKAN MOBILE HEADER - GANTI SELURUH BLOK @media (max-width: 768px)
+   YANG LAMA DENGAN KODE INI (letakkan di paling bawah app.css)
+   ============================================================ */
+
 @media screen and (max-width: 768px) {
-  
-  /* --- 1. PEMBUNGKUS UTAMA HEADER --- */
-  .hero-responsive-wrapper {
-    position: relative; 
-    display: block; 
-    padding: 30px 15px; 
-    min-height: 220px; 
-    overflow: hidden;
+
+  /* --- RESET OVERFLOW --- */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
-  /* --- 2. SISI KIRI (TEKS) --- */
+  /* ========================
+     HERO SECTION - MOBILE
+     ======================== */
+
+  /* Kunci tinggi hero agar tidak terlalu panjang kosong */
+  .hero-section {
+    height: auto !important;
+    min-height: 180px !important;
+    padding: 25px 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  /* Konten teks: dorong ke kiri dengan padding yang cukup */
+  .hero-section .hero-content,
+  .hero-content {
+    width: 58% !important;
+    max-width: 58% !important;
+    padding-left: 18px !important;
+    padding-right: 10px !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+
+  .hero-section .hero-content .hero-text,
   .hero-text {
-    width: 60% !important; /* Kunci lebar teks hanya 60% */
-    position: relative;
-    z-index: 10; 
-    text-align: left;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
-  /* Sembunyikan teks versi panjang di HP */
+  /* H1: "SELAMAT DATANG" */
+  .hero-section .hero-content .hero-text h1,
+  .hero-text h1 {
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    margin-bottom: 4px !important;
+    white-space: normal !important;
+    color: white !important;
+  }
+
+  /* H2: Nama Kantor — boleh 2 baris di HP */
+  .hero-section .hero-content .hero-text h2,
+  .hero-text h2 {
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;   /* izinkan wrap di HP */
+    margin-top: 2px !important;
+    margin-bottom: 10px !important;
+    color: white !important;
+  }
+
+  /* Versi mobile (nama pendek) */
+  .mobile-only {
+    display: block !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 6px !important;
+    color: white !important;
+  }
+
+  /* Sembunyikan versi panjang di HP */
   .desktop-only {
     display: none !important;
   }
 
-  /* Munculkan nama kantor versi pendek dengan ukuran rapi */
-  .mobile-only {
-    display: block !important;
-    font-size: 18px !important; 
-    font-weight: bold;
-    line-height: 1.3 !important;
-    margin-bottom: 8px !important;
-    color: #ffffff; 
-  }
-
-  /* Kecilkan sedikit teks deskripsinya */
-  .hero-desc, .hero-text p {
-    font-size: 11px !important;
+  /* Paragraf deskripsi */
+  .hero-section .hero-content .hero-text p,
+  .hero-text p,
+  .hero-desc {
+    font-size: 10px !important;
     line-height: 1.4 !important;
-    margin-top: 5px !important;
+    color: #e2e8f0 !important;
     max-width: 100% !important;
+    margin: 0 !important;
   }
 
-  /* --- 3. SISI KANAN (BATIK & KUNING) --- */
+  /* ========================
+     DEKORASI KANAN - MOBILE
+     ======================== */
+
+  /* Wrapper dekorasi menempel ke kanan */
   .hero-decoration-wrapper {
     position: absolute !important;
     top: 0 !important;
     right: 0 !important;
-    bottom: 0 !important;
-    width: 40% !important; /* Batasi area dekorasi 40% di kanan */
+    width: 42% !important;
     height: 100% !important;
-    display: flex;
-    justify-content: flex-end;
+    z-index: 1 !important;
+    pointer-events: none !important;
   }
 
+  /* Segitiga kuning: skala lebih kecil dan arahnya tetap */
   .small-yellow-triangle {
-    transform: scale(0.6); 
-    transform-origin: top right; 
-  }
-
-  .batik-corner-main {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    background-size: cover !important; 
-    background-position: left center !important;
+    background-color: #fcc419 !important;
+    clip-path: polygon(0% 0%, 40% 0%, 20% 100%, -20% 100%) !important;
+    z-index: 5 !important;
+    transform: none !important;
   }
 
-  /* --- 4. PERBAIKAN FOOTER (PETA MAP) --- */
+  /* Batik di pojok kanan */
+  .batik-corner-main {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover !important;
+    background-position: center !important;
+    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
+    z-index: 4 !important;
+  }
+
+  /* ========================
+     FOOTER - MOBILE
+     ======================== */
+
   .footer-content {
     display: flex !important;
-    flex-direction: column !important; /* Tumpuk info dan peta atas-bawah */
+    flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
     gap: 20px !important;
   }
 
-  .footer-info, .footer-map {
+  .footer-info,
+  .footer-map {
     width: 100% !important;
   }
 
-  .footer-logos, .footer-socials {
+  .footer-logos,
+  .footer-socials {
     justify-content: center !important;
   }
 
@@ -1855,7 +1930,6 @@ html, body {
     width: 100% !important;
     max-width: 320px !important;
     margin: 0 auto !important;
-    height: auto !important;
   }
 
   .map-image {
@@ -1863,57 +1937,5 @@ html, body {
     height: auto !important;
     object-fit: contain !important;
     border-radius: 8px !important;
-  }
-}
-/* ========================================================
-   PERBAIKAN KHUSUS MOBILE (TIDAK MENGGANGGU DESKTOP)
-   ======================================================== */
-@media screen and (max-width: 768px) {
-  
-  /* 1. Memaksa area biru menyesuaikan layar HP dan memberi batas aman (padding) */
-  .hero-section {
-    box-sizing: border-box !important;
-    width: 100vw !important;
-    max-width: 100% !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    overflow-x: hidden !important; /* Mencegah layar HP bisa digeser ke kanan/kiri */
-  }
-
-  /* 2. Memastikan pembungkus teks patuh pada batas layar */
-  .hero-responsive-wrapper,
-  .hero-content,
-  .hero-text {
-    box-sizing: border-box !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  /* 3. Menghidupkan teks pendek HP, mematikan teks panjang Laptop */
-  .desktop-only {
-    display: none !important;
-  }
-  
-  .mobile-only {
-    display: block !important;
-    font-size: 22px !important; 
-    line-height: 1.4 !important;
-    margin-bottom: 12px !important;
-  }
-
-  /* 4. Mendorong gambar dekorasi agar tidak menabrak teks di HP */
-  .hero-decoration-wrapper {
-    position: absolute !important;
-    bottom: -10px !important;
-    right: -20px !important;
-    opacity: 0.3 !important; /* Disamarkan agar teks putih tetap terbaca */
-    transform: scale(0.6) !important; /* Diperkecil khusus di HP */
-    z-index: 0 !important;
-  }
-  
-  .hero-content {
-    position: relative !important;
-    z-index: 2 !important; /* Teks dipaksa tampil di atas gambar */
   }
 }
