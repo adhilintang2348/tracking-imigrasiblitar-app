@@ -1768,11 +1768,6 @@ html, body {
   overflow-x: hidden;
 }
 
-/* ============================================================
-   PERBAIKAN MOBILE HEADER - GANTI SELURUH BLOK @media (max-width: 768px)
-   YANG LAMA DENGAN KODE INI (letakkan di paling bawah app.css)
-   ============================================================ */
-
 @media screen and (max-width: 768px) {
 
   /* --- RESET OVERFLOW --- */
@@ -1785,11 +1780,10 @@ html, body {
      HERO SECTION - MOBILE
      ======================== */
 
-  /* Kunci tinggi hero agar tidak terlalu panjang kosong */
   .hero-section {
     height: auto !important;
-    min-height: 180px !important;
-    padding: 25px 0 !important;
+    min-height: 200px !important;
+    padding: 30px 0 !important;
     margin: 0 !important;
     display: flex !important;
     align-items: center !important;
@@ -1797,13 +1791,13 @@ html, body {
     overflow: hidden !important;
   }
 
-  /* Konten teks: dorong ke kiri dengan padding yang cukup */
+  /* Konten teks: hanya 55% lebar kiri */
   .hero-section .hero-content,
   .hero-content {
-    width: 58% !important;
-    max-width: 58% !important;
+    width: 55% !important;
+    max-width: 55% !important;
     padding-left: 18px !important;
-    padding-right: 10px !important;
+    padding-right: 8px !important;
     position: relative !important;
     z-index: 10 !important;
   }
@@ -1814,84 +1808,83 @@ html, body {
     max-width: 100% !important;
   }
 
-  /* H1: "SELAMAT DATANG" */
+  /* H1: "SELAMAT DATANG" — SEMBUNYIKAN di mobile */
   .hero-section .hero-content .hero-text h1,
   .hero-text h1 {
-    font-size: 16px !important;
-    font-weight: 800 !important;
-    line-height: 1.2 !important;
-    margin-bottom: 4px !important;
-    white-space: normal !important;
-    color: white !important;
+    display: none !important;
   }
 
-  /* H2: Nama Kantor — boleh 2 baris di HP */
-  .hero-section .hero-content .hero-text h2,
-  .hero-text h2 {
-    font-size: 15px !important;
-    font-weight: 800 !important;
-    line-height: 1.25 !important;
-    white-space: normal !important;   /* izinkan wrap di HP */
-    margin-top: 2px !important;
-    margin-bottom: 10px !important;
-    color: white !important;
-  }
-
-  /* Versi mobile (nama pendek) */
-  .mobile-only {
-    display: block !important;
-    font-size: 15px !important;
-    font-weight: 800 !important;
-    line-height: 1.3 !important;
-    margin-bottom: 6px !important;
-    color: white !important;
-  }
-
-  /* Sembunyikan versi panjang di HP */
+  /* H2: Nama kantor lengkap versi desktop — SEMBUNYIKAN di mobile */
+  .hero-section .hero-content .hero-text h2.desktop-only,
+  .hero-text h2.desktop-only,
   .desktop-only {
     display: none !important;
   }
 
-  /* Paragraf deskripsi */
+  /* Teks mobile: hanya nama kantor singkat */
+  .mobile-only {
+  display: flex !important;
+  flex-direction: column !important;
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0.4px !important;
+  color: white !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 90% !important;
+  text-transform: uppercase !important;
+}
+.mobile-only span {
+  display: block !important;
+}
+
+  /* Paragraf deskripsi: SEMBUNYIKAN di mobile */
   .hero-section .hero-content .hero-text p,
   .hero-text p,
   .hero-desc {
-    font-size: 10px !important;
-    line-height: 1.4 !important;
-    color: #e2e8f0 !important;
-    max-width: 100% !important;
-    margin: 0 !important;
+    display: none !important;
   }
 
   /* ========================
      DEKORASI KANAN - MOBILE
+     Menyerupai bentuk desktop:
+     - Segitiga kuning diagonal dari kiri-atas ke kanan-bawah
+     - Batik mengisi sisa area kanan
      ======================== */
 
-  /* Wrapper dekorasi menempel ke kanan */
   .hero-decoration-wrapper {
     position: absolute !important;
     top: 0 !important;
     right: 0 !important;
-    width: 42% !important;
+    width: 48% !important;      /* Sama proporsinya dengan desktop (~50%) */
     height: 100% !important;
     z-index: 1 !important;
     pointer-events: none !important;
   }
 
-  /* Segitiga kuning: skala lebih kecil dan arahnya tetap */
-  .small-yellow-triangle {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    background-color: #fcc419 !important;
-    clip-path: polygon(0% 0%, 40% 0%, 20% 100%, -20% 100%) !important;
-    z-index: 5 !important;
-    transform: none !important;
-  }
+  /*
+   * Segitiga kuning:
+   * Desktop: clip-path polygon(25% 0, 57% 0, 41% 40%)
+   * Mobile: kita pakai bentuk serupa — segitiga mengarah ke bawah
+   * agar tampak SAMA dengan versi desktop
+   */
+ .small-yellow-triangle {
+  position: absolute !important;
+  top: -1px !important;
+  left: -1px !important;
+  width: calc(100% + 2px) !important;
+  height: calc(100% + 2px) !important;
+  background-color: #fcc419 !important;
+  clip-path: polygon(18% 0%, 58% 0%, 40% 50%) !important;
+  z-index: 5 !important;
+}
 
-  /* Batik di pojok kanan */
+  /*
+   * Batik corner:
+   * Desktop: clip-path polygon(25% 0, 100% 0, 100% 100%, 65% 100%)
+   * Mobile: gunakan bentuk diagonal yang sama agar identik
+   */
   .batik-corner-main {
     position: absolute !important;
     top: 0 !important;
@@ -1899,8 +1892,9 @@ html, body {
     width: 100% !important;
     height: 100% !important;
     background-size: cover !important;
-    background-position: center !important;
-    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
+    background-position: left center !important;
+    /* Diagonal dari 20% atas ke 65% bawah, identik dengan desktop */
+    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 60% 100%) !important;
     z-index: 4 !important;
   }
 
@@ -1926,16 +1920,22 @@ html, body {
     justify-content: center !important;
   }
 
+  /* Peta: pastikan memenuhi kotak dengan object-fit: cover */
   .map-container {
     width: 100% !important;
-    max-width: 320px !important;
+    max-width: 100% !important;
     margin: 0 auto !important;
+    height: 180px !important;   /* Tinggi tetap agar peta tidak gepeng */
+    border-radius: 10px !important;
+    overflow: hidden !important;
   }
 
   .map-image {
     width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
-    border-radius: 8px !important;
+    height: 100% !important;
+    object-fit: cover !important;   /* Cover = memenuhi kotak, tidak ada ruang kosong */
+    object-position: center !important;
+    border-radius: 0 !important;
+    display: block !important;
   }
 }

@@ -21,7 +21,8 @@ function Home() {
     id: {
       welcome: "SELAMAT DATANG",
       office: "DI KANTOR IMIGRASI KELAS II NON TPI BLITAR",
-      officeMobile: "KANTOR IMIGRASI BLITAR",
+      officeMobileTop: "KANTOR IMIGRASI",
+      officeMobileBottom: "KELAS II NON TPI BLITAR",
       desc: "Gunakan layanan ini untuk mengecek status permohonan Paspor RI / Izin Tinggal Keimigrasian pada Kantor Imigrasi Kelas II Non TPI Blitar",
       title: "CEK STATUS PERMOHONAN LAYANAN KEIMIGRASIAN",
       subtitle: "Masukkan nomor permohonan paspor atau izin tinggal Anda untuk melacak status secara real-time",
@@ -41,7 +42,8 @@ function Home() {
     en: {
       welcome: "WELCOME",
       office: "TO IMMIGRATION OFFICE CLASS II NON TPI BLITAR",
-      officeMobile: "BLITAR IMMIGRATION OFFICE",
+      officeMobileTop: "BLITAR IMMIGRATION OFFICE",
+      officeMobileBottom: "CLASS II NON TPI BLITAR",
       desc: "Use this service to check the status of your application",
       title: "CHECK APPLICATION STATUS",
       subtitle: "Enter your application number to track the status in real-time",
@@ -134,7 +136,10 @@ function Home() {
   <h2 className="desktop-only">{t.office}</h2>
   
   {/* Teks versi pendek (hanya muncul di HP) */}
-  <h2 className="mobile-only">{t.officeMobile}</h2>
+  <h2 className="mobile-only">
+  <span>{t.officeMobileTop}</span>
+  <span>{t.officeMobileBottom}</span>
+</h2>
   
   {/* Teks deskripsi */}
   <p className="hero-desc">{t.desc}</p>
